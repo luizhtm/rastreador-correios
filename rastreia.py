@@ -1,6 +1,5 @@
 import requests
 import urllib.parse
-import time
 from bs4 import BeautifulSoup
 
 def rastrear(codigo):

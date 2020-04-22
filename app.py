@@ -25,7 +25,7 @@ def rastreia_codigo(codigo):
 	valido = re.fullmatch(r'[A-Z]{2}[0-9]{9}[A-Z]{2}', codigo)
 
 	resultado = []
-	
+
 	if valido:
 		resultado = rastrear(codigo)
 
