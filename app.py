@@ -1,4 +1,4 @@
-from bottle import route, view, run, request, static_file, template, redirect, url
+from bottle import route, view, run, request, static_file, redirect, url
 from rastreia import rastrear
 import re
 
