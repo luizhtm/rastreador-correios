@@ -2,16 +2,17 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-	<script src="/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{{get_url('static', path='bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{get_url('static', path='custom.css')}}">
+	<script src="{{get_url('static', path='bootstrap.min.js')}}"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Rastreador</title>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-dark bg-primary navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-dark bg-primary">
 		<a class="navbar-brand" href="/">Rastreador</a>
 	</nav>
-	<div class="container mt-4 mb-4">
+	<main role="main" class="container mt-4 mb-4">
 		<h3 class="text-center">Rastreie suas encomendas do Correios</h3>
 		<div class="row d-flex justify-content-center mt-4">
 			<form class="form-inline" action="/rastrear" method="POST">
@@ -23,6 +24,11 @@
 				</div>
 			</form>
 		</div>
-	</div>
+	</main>
+	<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Rastreador™ - Todos os direitos reservados ©</span>
+      </div>
+    </footer>
 </body>
 </html>

@@ -1,18 +1,15 @@
-from bottle import route, run, request, static_file, template, redirect
+from bottle import route, view, run, request, static_file, template, redirect, url
 from rastreia import rastrear
 import re
 
-@route('*/js/<filename>')
-def js(filename):
-	return static_file(filename, root='./js/')
-
-@route('*/css/<filename>')
-def css(filename):
-	return static_file(filename, root='./css/')
+@route('/static/:path#.+#', name='static')
+def serve_static(path):
+	return static_file(path, root='static')
 
 @route('/')
+@view('index')
 def index():
-	return static_file('index.html', 'views/')
+	return { 'get_url': url }
 
 @route('/rastrear', method='POST')
 def rastreia():
@@ -21,6 +18,7 @@ def rastreia():
 	redirect('/rastrear/{codigo}'.format(codigo=codigo))
 
 @route('/rastrear/<codigo>')
+@view('rastreamento')
 def rastreia_codigo(codigo):
 	valido = re.fullmatch(r'[A-Z]{2}[0-9]{9}[A-Z]{2}', codigo)
 
@@ -29,6 +27,6 @@ def rastreia_codigo(codigo):
 	if valido:
 		resultado = rastrear(codigo)
 
-	return template('rastreamento', codigo=codigo, resultado=resultado, valido=valido)
+	return { 'get_url': url, 'codigo': codigo, 'resultado': resultado, 'valido': valido }
 
 run(host='localhost', port=8080, debug=True, reloader=True)
