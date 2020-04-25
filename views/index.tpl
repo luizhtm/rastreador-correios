@@ -26,7 +26,7 @@
 		</div>
 	</main>
 	<footer class="footer">
-      <div class="container">
+      <div class="container text-center">
         <span class="text-muted">Rastreador™ - Todos os direitos reservados ©</span>
       </div>
     </footer>
