@@ -1,5 +1,4 @@
 import requests
-import urllib.parse
 from bs4 import BeautifulSoup
 
 def rastrear(codigo):
@@ -43,7 +42,7 @@ def rastrear(codigo):
 			linha_destino = eventos_lista[4].strip()
 			cidade_destino = linha_destino[2:].strip()
 			dados['destino'] = cidade_destino
-		
+
 		todos_eventos.append(dados)
 
 	return todos_eventos
