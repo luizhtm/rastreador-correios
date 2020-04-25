@@ -14,7 +14,7 @@
 	</nav>
 	<main role="main" class="container mt-4 mb-4">
 		<h3 class="text-center">{{codigo}}</h3>
-		<div class="row d-flex justify-content-center my-4">
+		<div class="d-flex justify-content-center my-4">
 			%if valido:
 				%if len(resultado) != 0:
 					<ul class="list-group">

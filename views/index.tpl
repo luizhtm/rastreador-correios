@@ -14,7 +14,7 @@
 	</nav>
 	<main role="main" class="container mt-4 mb-4">
 		<h3 class="text-center">Rastreie suas encomendas do Correios</h3>
-		<div class="row d-flex justify-content-center mt-4">
+		<div class="d-flex justify-content-center mt-4">
 			<form class="form-inline" action="/rastrear" method="POST">
 				<div class="col-auto">
 					<input class="form-control" name="codigo" type="search" placeholder="Código" aria-label="Search" required>
