@@ -13,11 +13,11 @@
 		<a class="navbar-brand" href="/">Rastreador</a>
 	</nav>
 	<main role="main" class="container mt-4 mb-4">
-		<h3 class="text-center">{{codigo}}</h3>
-		<div class="d-flex justify-content-center my-4">
+		<h3 class="text-center mb-3">{{codigo}}</h3>
+		<div class="d-flex justify-content-center">
 			%if valido:
 				%if len(resultado) != 0:
-					<ul class="list-group">
+					<ul class="list-group mb-3">
 					%for evento in resultado:
 						<li class="list-group-item">{{evento.get('data')}} - {{evento.get('hora')}} - {{evento.get('local')}}: {{evento.get('evento')}}
 						%if evento.get('destino'):
@@ -36,8 +36,9 @@
 					<p>O código que você inseriu é inválido. Lembre-se que códigos de rastreamento tem o seguinte formato: <strong>AA123456789XX</strong></p>
 				</div>
 			%end
+			
 		</div>
-		<div class="d-flex justify-content-center mb-5">
+		<div class="d-flex justify-content-center">
 			<a href="/"><button class="btn btn-primary">Rastrear outro objeto</button></a>
 		</div>
 	</main>

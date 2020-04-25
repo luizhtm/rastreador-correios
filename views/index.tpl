@@ -14,13 +14,13 @@
 	</nav>
 	<main role="main" class="container mt-4 mb-4">
 		<h3 class="text-center">Rastreie suas encomendas do Correios</h3>
-		<div class="d-flex justify-content-center mt-4">
+		<div class="row d-flex justify-content-center mt-4">
 			<form class="form-inline" action="/rastrear" method="POST">
-				<div class="col-auto">
+				<div class="col-sm">
 					<input class="form-control" name="codigo" type="search" placeholder="Código" aria-label="Search" required>
 				</div>
-				<div class="col-auto">
-					<button class="btn btn-primary" type="submit">Rastrear</button>
+				<div class="col-sm">
+					<button style="width:100%"class="btn btn-primary" type="submit">Rastrear</button>
 				</div>
 			</form>
 		</div>
