@@ -1,15 +1,16 @@
 # rastreador-correios
 
-Um site básico que rastreia encomendas do Correios
+Veja onde suas encomendas estão só usando o terminal.
 
 ## Rodando na sua máquina
 
-Considerando Python 3 instalado e pip devidamente configurados:
+Considerando Python 3 instalado, as dependencias do script são: requests e a BeautifulSoup4.
 
-```pip install bottle bs4```
+Instale usando o seguinte comando:
 
-Depois rodar app.py:
+```pip install requests bs4```
 
-```python app.py```
+Para rodar:
 
-E entrar no localhost:8080.
+```python rastreia.py < codigo de rastreamento >```
+

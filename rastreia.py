@@ -1,4 +1,6 @@
 import requests
+import sys
+import re
 from bs4 import BeautifulSoup
 
 def rastrear(codigo):
@@ -38,7 +40,7 @@ def rastrear(codigo):
 			'evento': evento
 		}
 
-		if evento == "Objeto encaminhado":
+		if evento == "Objeto em trânsito - por favor aguarde":
 			linha_destino = eventos_lista[4].strip()
 			cidade_destino = linha_destino[2:].strip()
 			dados['destino'] = cidade_destino
@@ -46,3 +48,40 @@ def rastrear(codigo):
 		todos_eventos.append(dados)
 
 	return todos_eventos
+
+def exibe_status(eventos):
+	if not eventos:
+		print("Encomenda ainda não postada ou código está incorreto.")
+	else:
+		mensagem = '\n'
+		for evento in eventos:
+			mensagem += 'Data: {data} - Hora: {hora}\n'.format(data=evento['data'], hora=evento['hora'])
+			try:
+				mensagem += 'Objeto em {local} sendo transferido para {destino}\n'.format(local=evento['local'], destino=evento['destino'])
+			except:
+				mensagem += 'Objeto em {local} - {evento}\n'.format(local=evento['local'], evento=evento['evento'])
+			mensagem += '\n'
+
+		print(mensagem)
+
+def main():
+	# Checa se o codigo está na chamada do script
+	if len(sys.argv) > 1:
+		print('blah')
+		print(sys.argv[1])
+		codigo = sys.argv[1]
+	else:
+		print('merda')
+		codigo = input('Digite o código de rastreamento: ')
+
+	codigo = codigo.upper()
+	valido = re.fullmatch(r'[A-Z]{2}[0-9]{9}[A-Z]{2}', codigo)
+
+	if valido:
+		todos_eventos = rastrear(codigo)
+		exibe_status(todos_eventos)
+	else:
+		print("Formato do código inválido.")
+
+if __name__ == "__main__":
+    main()
