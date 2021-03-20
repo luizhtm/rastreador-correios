@@ -67,11 +67,9 @@ def exibe_status(eventos):
 def main():
 	# Checa se o codigo está na chamada do script
 	if len(sys.argv) > 1:
-		print('blah')
 		print(sys.argv[1])
 		codigo = sys.argv[1]
 	else:
-		print('merda')
 		codigo = input('Digite o código de rastreamento: ')
 
 	codigo = codigo.upper()
