@@ -59,7 +59,7 @@ def exibe_status(eventos):
 			try:
 				mensagem += 'Objeto em {local} sendo transferido para {destino}\n'.format(local=evento['local'], destino=evento['destino'])
 			except:
-				mensagem += 'Objeto em {local} - {evento}\n'.format(local=evento['local'], evento=evento['evento'])
+				mensagem += '{local} - {evento}\n'.format(local=evento['local'], evento=evento['evento'])
 			mensagem += '\n'
 
 		print(mensagem)
